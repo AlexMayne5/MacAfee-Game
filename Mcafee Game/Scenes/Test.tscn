@@ -6,5 +6,10 @@
 script = ExtResource( 1 )
 
 [node name="Player" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Sprite" type="Sprite" parent="Player"]
+
+[node name="Floor" type="Node2D" parent="."]
+
+[node name="Platform" type="Node2D" parent="."]

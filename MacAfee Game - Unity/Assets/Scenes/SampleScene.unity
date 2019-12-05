@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -226,6 +227,20 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d6c3143ce615cf45b41020cf01e8b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 882613942}
+  speed: 2
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -425,13 +440,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77aadc8bb98ba644fb3ff0430107bdc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  jumpHeight: 5
+  moveSpeed: 10
+  jumpHeight: 10
   groundCheck: {fileID: 1963983113}
-  groundCheckRadius: 0
+  groundCheckRadius: 1
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
+  PlayerCollider: {fileID: 882613946}
 --- !u!1 &1941460710
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,8 +492,8 @@ GameObject:
   - component: {fileID: 1963983115}
   - component: {fileID: 1963983114}
   m_Layer: 0
-  m_Name: flor
-  m_TagString: Untagged
+  m_Name: floor
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

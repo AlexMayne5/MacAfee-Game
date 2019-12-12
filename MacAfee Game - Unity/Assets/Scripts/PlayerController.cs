@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     private bool grounded;
     public Collider2D PlayerCollider;
     public float distToGround;
+    public Rigidbody2D rb;
+    public int clickForce = 500;
+    public float coolDown;
     // Use this for initialization
     void Start()
     {
@@ -65,7 +68,21 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        
+        if(coolDown > 0)
+        {
+            coolDown = coolDown - 1*Time.deltaTime;
+        }
+        var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        var mouseDir = mousePos - gameObject.transform.position;
+        mouseDir.z = 0.0f;
+        mouseDir = mouseDir.normalized;
+
+        if (Input.GetMouseButtonDown(0)&&coolDown <= 0)
+        {
+            rb.AddForce(mouseDir * -clickForce);
+            coolDown = 0.5f;
+        }
+
         if (Input.GetKeyDown(KeyCode.W) && grounded == true)
         {
             Debug.Log("jump");

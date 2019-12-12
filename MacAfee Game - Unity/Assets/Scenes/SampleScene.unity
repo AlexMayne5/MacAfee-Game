@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 882613942}
-  speed: 2
+  speed: 10
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -441,13 +441,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  jumpHeight: 10
+  jumpHeight: 1
   groundCheck: {fileID: 1963983113}
   groundCheckRadius: 1
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1
   PlayerCollider: {fileID: 882613946}
+  distToGround: 0
+  rb: {fileID: 882613943}
+  clickForce: 1500
+  coolDown: 0.5
 --- !u!1 &1941460710
 GameObject:
   m_ObjectHideFlags: 0

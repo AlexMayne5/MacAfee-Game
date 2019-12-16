@@ -10,10 +10,17 @@ public class PlayerController : MonoBehaviour
     private bool grounded;
     public Collider2D PlayerCollider;
     public float distToGround;
+<<<<<<< Updated upstream
+=======
+    public Rigidbody2D rb;
+    public int clickForce = 500;
+    public float coolDown;
+    public float speedLimit;
+>>>>>>> Stashed changes
     // Use this for initialization
     void Start()
     {
-        Debug.Log("Hola");
+        grounded = true;
         distToGround = PlayerCollider.bounds.extents.y;
     }
     void fixedUpdate()
@@ -22,22 +29,6 @@ public class PlayerController : MonoBehaviour
     }
     // Update is called once per frame
 
-    /*
-        void OnCollisionStay(Collision collision)
-        {
-            Debug.Log("Touching a thing");
-            if (collision.gameObject.tag == "ground")
-            {
-                grounded = true;
-                Debug.Log("touching ground");
-            }
-        }
-
-        public bool IsGrounded()
-        {
-            return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
-        }
-        */
     void OnCollisionStay2D(Collision2D collider)
     {
         CheckIfGrounded();
@@ -59,42 +50,50 @@ public class PlayerController : MonoBehaviour
         //if a collider was hit, we are grounded
         if (hits.Length > 0)
         {
+            Debug.Log("Grounded");
             grounded = true;
+        }
+        else
+        {
+            grounded = false;
         }
     }
 
     void Update()
     {
+<<<<<<< Updated upstream
         
+=======
+        if(coolDown > 0)
+        {
+            coolDown = coolDown - 1*Time.deltaTime;
+        }
+        var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        var mouseDir = mousePos - gameObject.transform.position;
+        mouseDir.z = 0.0f;
+        mouseDir = mouseDir.normalized;
+
+        if (Input.GetMouseButtonDown(0)&&coolDown <= 0)
+        {
+            rb.AddForce(mouseDir * -clickForce);
+            coolDown = 1.3f;
+        }
+
+>>>>>>> Stashed changes
         if (Input.GetKeyDown(KeyCode.W) && grounded == true)
         {
-            Debug.Log("jump");
             GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            Debug.Log(grounded);
-            if (grounded == true)
-            {
-                GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
-            } else
-            {
-                GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed/5, GetComponent<Rigidbody2D>().velocity.y);
-            }
-            
-
+            //GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);    
+            rb.AddForce(new Vector2(moveSpeed, 0), ForceMode2D.Impulse);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            if (grounded == true)
-            {
-                GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
-            }
-            else
-            {
-                GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed / 5, GetComponent<Rigidbody2D>().velocity.y);
-            }
+            //GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+            rb.AddForce(new Vector2(-moveSpeed, 0), ForceMode2D.Impulse);
         }
-        grounded = false;
+        rb.velocity = Vector2.ClampMagnitude(rb.velocity, speedLimit);
     }
 }

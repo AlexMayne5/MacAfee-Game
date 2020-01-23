@@ -983,6 +983,23 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8865525801633541305}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
+=======
+--- !u!114 &882613949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882613942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bfd57905118d4f4e9cdf1f330a9183a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 15
+  clickForce: 375
+>>>>>>> Stashed changes
 --- !u!1001 &896526349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1082,7 +1099,7 @@ PrefabInstance:
     - target: {fileID: 3756993361170939519, guid: ff541b6fee1763240b0ff9f603e5de42,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.693
+      value: -3.6930008
       objectReference: {fileID: 0}
     - target: {fileID: 3756993361170939519, guid: ff541b6fee1763240b0ff9f603e5de42,
         type: 3}
@@ -1138,6 +1155,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.18696284
+      objectReference: {fileID: 0}
+    - target: {fileID: 3756993361170939519, guid: ff541b6fee1763240b0ff9f603e5de42,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff541b6fee1763240b0ff9f603e5de42, type: 3}
@@ -1563,11 +1585,26 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8865525800904356366, guid: 01ff62ef27af228499ce6a6afc0fcf0b,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8865525800904356367, guid: 01ff62ef27af228499ce6a6afc0fcf0b,
         type: 3}
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
     m_RemovedComponents: []
+=======
+    - target: {fileID: 8865525800904356367, guid: 01ff62ef27af228499ce6a6afc0fcf0b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8865525800904356354, guid: 01ff62ef27af228499ce6a6afc0fcf0b, type: 3}
+>>>>>>> Stashed changes
   m_SourcePrefab: {fileID: 100100000, guid: 01ff62ef27af228499ce6a6afc0fcf0b, type: 3}
 >>>>>>> Stashed changes

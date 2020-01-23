@@ -2,6 +2,7 @@
 using System.Collections;
 public class PlayerController : MonoBehaviour
 {
+<<<<<<< Updated upstream:MacAfee Game - Unity/Assets/Scripts/PlayerController.cs
     public float moveSpeed;
     public float jumpHeight;
     public Transform groundCheck;
@@ -13,6 +14,17 @@ public class PlayerController : MonoBehaviour
 <<<<<<< Updated upstream
 =======
     public Rigidbody2D rb;
+=======
+    //public float moveSpeed;
+    //public float jumpHeight;
+    //public Transform groundCheck;
+    //public float groundCheckRadius;
+    //public LayerMask whatIsGround;
+    //private bool grounded;
+    //public Collider2D PlayerCollider;
+    //public float distToGround;
+    //public Rigidbody2D rb;
+>>>>>>> Stashed changes:MacAfee Game - Unity/Assets/Scripts/Old PlayerController.cs
     public int clickForce = 500;
     public float coolDown;
     public float speedLimit;
@@ -28,7 +40,8 @@ public class PlayerController : MonoBehaviour
 
     }
     // Update is called once per frame
-
+    /*
+     <param name="collider"></param>
     void OnCollisionStay2D(Collision2D collider)
     {
         CheckIfGrounded();
@@ -58,7 +71,7 @@ public class PlayerController : MonoBehaviour
             grounded = false;
         }
     }
-
+    */
     void Update()
     {
 <<<<<<< Updated upstream
@@ -78,8 +91,12 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(mouseDir * -clickForce);
             coolDown = 1.3f;
         }
+<<<<<<< Updated upstream:MacAfee Game - Unity/Assets/Scripts/PlayerController.cs
 
 >>>>>>> Stashed changes
+=======
+        /*
+>>>>>>> Stashed changes:MacAfee Game - Unity/Assets/Scripts/Old PlayerController.cs
         if (Input.GetKeyDown(KeyCode.W) && grounded == true)
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
@@ -94,6 +111,7 @@ public class PlayerController : MonoBehaviour
             //GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
             rb.AddForce(new Vector2(-moveSpeed, 0), ForceMode2D.Impulse);
         }
-        rb.velocity = Vector2.ClampMagnitude(rb.velocity, speedLimit);
+       rb.velocity = Vector2.ClampMagnitude(rb.velocity, speedLimit);
+       */
     }
 }
